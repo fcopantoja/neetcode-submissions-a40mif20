@@ -1,0 +1,18 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        l = 0
+        r = 1
+        max_profit = float("-inf")
+        
+
+        while r < len(prices):
+            profit = prices[r] - prices[l]
+            if profit > 0:
+                max_profit = max(max_profit, profit)
+            else:
+                l = r
+            
+            r += 1
+                
+        return max_profit if max_profit != float("-inf") else 0
+            
